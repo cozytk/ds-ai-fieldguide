@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#112e37" />
+    <title>지침·스킬·MCP | AI 기본 교육</title>
+    <link rel="icon" href="../assets/icon.svg" />
+    <link rel="stylesheet" href="../assets/base.css" />
+  </head>
+  <body data-deck="agent">
+    <div class="deck-shell">
+      <header class="topbar">
+        <a
+          href="../index.html"
+          class="brand"
+          aria-label="DS AX/PI 센터 교안 목록"
+          ><span class="brand-mark" aria-hidden="true"
+            ><svg viewBox="0 0 24 24">
+              <g fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="m2 9 10-5 10 5-10 5zM2 13l10 5 10-5M2 17l10 5 10-5" />
+              </g></svg></span
+          ><span>DS AX/PI 센터</span></a
+        >
+        <nav class="tools" aria-label="발표 도구">
+          <button class="chrome" data-dialog="toc" title="목차 (M)">목차</button
+          ><button class="chrome" data-dialog="gloss">용어</button
+          ><button class="chrome" data-dialog="note" title="강사 노트 (N)">
+            강사 노트</button
+          ><button class="chrome" id="fullscreen" aria-pressed="false">
+            전체 화면
+          </button>
+        </nav>
+      </header>
+      <main id="page" class="page"></main>
+      <footer class="deckfoot">
+        <div class="progress"></div>
+        <div class="footin">
+          <div class="countgroup">
+            <span class="pagecount"></span><span class="section-label"></span>
+          </div>
+          <div class="btns">
+            <span class="key">← → 이동</span
+            ><button id="prev" class="ctrl">← 이전</button
+            ><button id="next" class="ctrl primary">다음 →</button>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <dialog aria-labelledby="dialogTitle">
+      <div class="dialog-head">
+        <h2 id="dialogTitle"></h2>
+        <button id="closeDialog" class="chrome">닫기 ×</button>
+      </div>
+      <div id="dialogBody"></div>
+    </dialog>
+    <div class="tooltip" id="termTip" role="tooltip" hidden></div>
+    <div id="announcer" aria-live="polite" class="sr"></div>
+    <noscript>이 교안을 보려면 브라우저에서 JavaScript를 켜 주세요.</noscript>
+    <script src="../assets/art.js"></script>
+    <script src="../assets/shared.js"></script>
+    <script src="../assets/agent-widgets.js"></script>
+    <script src="lesson.js"></script>
+    <script src="../assets/deck.js"></script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#112e37" />
+    <meta
+      name="description"
+      content="삼성 DS AX/PI 센터 AI 기본 교육. Windows OpenCode 실습에서 지침·스킬·MCP와 RAG의 원리를 배우는 대화형 교안 두 편."
+    />
+    <title>AI 기본 교육 | 삼성 DS AX/PI 센터</title>
+    <link rel="icon" href="assets/icon.svg" />
+    <link rel="stylesheet" href="assets/base.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"
+            ><svg viewBox="0 0 24 24">
+              <g fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="m2 9 10-5 10 5-10 5zM2 13l10 5 10-5M2 17l10 5 10-5" />
+              </g></svg></span
+          ><span>DS AX/PI 센터</span>
+        </div>
+        <span class="topmeta">Windows · OpenCode</span>
+      </header>
+      <main class="home">
+        <div class="home-hero">
+          <div>
+            <p class="eyebrow">삼성 DS AX/PI 센터</p>
+            <h1><span>AI 기본 교육</span></h1>
+            <p class="lead">
+              사내 작업법을 에이전트에 남기고,<br />문서에서 근거를 찾아 답하는
+              법을 익힙니다.
+            </p>
+          </div>
+          <div class="instrument">
+            <div class="fighead">
+              <span
+                ><i class="lamp"></i
+                ><span id="instrumentTitle">CONTEXT</span></span
+              ><span id="figNumber">FIG. 01</span>
+            </div>
+            <div id="art"></div>
+            <div class="figfoot">
+              <span id="artLabel">작업 조건과 도구 연결</span
+              ><button type="button" id="switchFig">검색 그림 보기 →</button>
+            </div>
+          </div>
+        </div>
+        <nav class="course-index" aria-label="교안 선택">
+          <a class="course-link" href="agent/index.html"
+            ><span class="no">01</span>
+            <div>
+              <small>DAY 1 · AGENT</small>
+              <h2>지침·스킬·MCP</h2>
+            </div>
+            <p>보호된 Excel 읽기에서 사내 문서 검색까지</p>
+            <span class="round" aria-hidden="true">↗</span></a
+          >
+          <a class="course-link r" href="rag/index.html"
+            ><span class="no">02</span>
+            <div>
+              <small>DAY 2 · RAG</small>
+              <h2>RAG의 작동 원리</h2>
+            </div>
+            <p>토큰을 살펴보고, 검색하고, SQL로 집계하기</p>
+            <span class="round" aria-hidden="true">↗</span></a
+          >
+        </nav>
+        <footer class="home-footer">
+          <span>화살표 키로 이동 · 밑줄 용어를 누르면 설명 표시</span
+          ><span>AI 기본 교육 교안</span>
+        </footer>
+      </main>
+    </div>
+    <script src="assets/art.js"></script>
+    <script>
+      let active = 0;
+      function figure() {
+        document.querySelector("#art").innerHTML = active
+          ? searchArt()
+          : contextArt();
+        document.querySelector("#instrumentTitle").textContent = active
+          ? "RETRIEVAL"
+          : "CONTEXT";
+        document.querySelector("#figNumber").textContent = active
+          ? "FIG. 02"
+          : "FIG. 01";
+        document.querySelector("#artLabel").textContent = active
+          ? "질문과 가까운 문서 찾기"
+          : "작업 조건과 도구 연결";
+        document.querySelector("#switchFig").textContent = active
+          ? "작업 그림 보기 →"
+          : "검색 그림 보기 →";
+      }
+      document.querySelector("#switchFig").onclick = () => {
+        active = 1 - active;
+        figure();
+      };
+      figure();
+    </script>
+  </body>
+</html>
